@@ -17,8 +17,19 @@ This project shows and ML workflow using Instacart Market Basket Analysis datase
 Raw dataset files are not committed to this repository due to size constraints.
 
 ## Repository Structure
-- `notebooks/` – EDA, feature engineering, modeling, and explainability
-- `src/` – Reproducible pipeline scripts
+├── data/
+│   ├── raw/            # Placeholder for raw Instacart CSV files
+│   └── processed/      # Placeholder for processed datasets
+├── models/             # Placeholder for trained model artifacts
+├── notebooks/          # EDA, feature engineering, modeling, explainability
+├── src/                # Reproducible pipeline code
+│   ├── data_loading.py
+│   ├── preprocessing.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── config.py
+├── .gitignore
+└── README.md
 
 ## Modeling Approach
 
