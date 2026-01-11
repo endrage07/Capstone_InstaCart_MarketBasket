@@ -1,12 +1,25 @@
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-
-DATA_DIR = PROJECT_ROOT / "data"
-RAW_DIR = DATA_DIR / "raw"
-PROCESSED_DIR = DATA_DIR / "processed"
-
-MODELS_DIR = PROJECT_ROOT / "models"
-REPORTS_DIR = PROJECT_ROOT / "reports"
-
+# -----------------------------
+# Reproducibility
+# -----------------------------
 RANDOM_SEED = 42
+
+# -----------------------------
+# Dataset configuration
+# -----------------------------
+KAGGLE_DATASET = "psparks/instacart-market-basket-analysis"
+
+# Optional local fallback (not committed)
+RAW_DIR = Path("data/raw")
+
+# -----------------------------
+# Feature engineering params
+# -----------------------------
+CAP_DAYS = 30
+
+# -----------------------------
+# Modeling controls
+# -----------------------------
+MAX_ROWS = 500_000        # cap for full training table
+TUNE_ROWS = 50_000        # subsample for hyperparameter tuning
