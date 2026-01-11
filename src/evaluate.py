@@ -1,11 +1,20 @@
-from sklearn.metrics import roc_auc_score, classification_report
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score,
+)
 
-def evaluate_model(model, X, y):
-    y_pred = model.predict(X)
-    y_proba = model.predict_proba(X)[:, 1]
 
-    metrics = {
-        "roc_auc": roc_auc_score(y, y_proba),
-        "report": classification_report(y, y_pred)
+def evaluate_model(model, X_test, y_test):
+    y_pred = model.predict(X_test)
+    y_proba = model.predict_proba(X_test)[:, 1]
+
+    return {
+        "accuracy": accuracy_score(y_test, y_pred),
+        "precision": precision_score(y_test, y_pred, zero_division=0),
+        "recall": recall_score(y_test, y_pred, zero_division=0),
+        "f1": f1_score(y_test, y_pred, zero_division=0),
+        "roc_auc": roc_auc_score(y_test, y_proba),
     }
-    return metrics
